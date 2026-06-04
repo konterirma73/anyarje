@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🔒 PRIVATE LIVE STREAMING • FREE ACCESS</title>
+
+<meta property="og:title" content="🔒 PRIVATE LIVE STREAMING • FREE ACCESS">
+<meta property="og:description" content="Exclusive access is being prepared for you.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://YOUR-IMAGE-URL.jpg">
+
+<meta name="theme-color" content="#0a0a0a">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#050505;
+    overflow:hidden;
+    color:#fff;
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    width:800px;
+    height:800px;
+    background:radial-gradient(circle, rgba(255,0,90,.18), transparent 65%);
+    filter:blur(80px);
+    animation:pulse 5s infinite;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle, rgba(0,255,180,.08), transparent 65%);
+    right:-150px;
+    bottom:-150px;
+    filter:blur(80px);
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.2);
+    }
+}
+
+.card{
+    position:relative;
+    z-index:2;
+    width:92%;
+    max-width:430px;
+    padding:30px;
+    border-radius:24px;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.08);
+    overflow:hidden;
+    box-shadow:0 0 40px rgba(255,0,90,.12);
+}
+
+.scan{
+    position:absolute;
+    top:-100%;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        180deg,
+        transparent,
+        rgba(255,255,255,.08),
+        transparent
+    );
+    animation:scan 2.2s linear infinite;
+}
+
+@keyframes scan{
+    100%{
+        top:100%;
+    }
+}
+
+.live{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:999px;
+    background:#00c853;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:16px;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.55;
+    }
+}
+
+h1{
+    font-size:30px;
+    margin-bottom:10px;
+    line-height:1.2;
+}
+
+.badge{
+    display:inline-block;
+    background:#ff0055;
+    padding:8px 16px;
+    border-radius:999px;
+    font-weight:bold;
+    margin-bottom:15px;
+    box-shadow:0 0 20px rgba(255,0,85,.45);
+}
+
+.subtitle{
+    color:#ff7aa8;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.desc{
+    color:#d8d8d8;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+.percent{
+    font-size:52px;
+    font-weight:bold;
+    text-align:center;
+    color:#ff5c9d;
+    margin-bottom:12px;
+}
+
+.progress{
+    height:12px;
+    background:#1d1d1d;
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.bar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#ff0055,#ff7aa8);
+    transition:.15s;
+}
+
+.loading-box{
+    margin-top:18px;
+}
+
+.step{
+    opacity:.35;
+    margin:8px 0;
+    padding:11px;
+    border-radius:12px;
+    background:rgba(255,255,255,.04);
+    transform:translateX(-12px);
+    transition:.4s;
+}
+
+.step.active{
+    opacity:1;
+    transform:translateX(0);
+    border-left:4px solid #00ff88;
+    background:rgba(0,255,120,.08);
+}
+
+.stats{
+    display:flex;
+    justify-content:space-between;
+    margin-top:22px;
+}
+
+.stat{
+    flex:1;
+    text-align:center;
+}
+
+.number{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.countdown{
+    margin-top:22px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.footer{
+    margin-top:18px;
+    text-align:center;
+    color:#9a9a9a;
+    font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="scan"></div>
+
+    <div class="live">🔴 LIVE NOW</div>
+
+    <h1>🔒 PRIVATE LIVE STREAMING</h1>
+
+    <div class="badge">🔥 FREE ACCESS</div>
+
+    <div class="subtitle">⚡ Limited Access Available</div>
+
+    <div class="desc">
+        Preparing your secure connection while we verify stream availability
+        and reserve your access.
+    </div>
+
+    <div class="percent" id="percent">0%</div>
+
+    <div class="progress">
+        <div class="bar" id="bar"></div>
+    </div>
+
+    <div class="loading-box">
+
+        <div class="step">✓ Checking Stream Availability</div>
+        <div class="step">✓ Verifying Secure Access</div>
+        <div class="step">✓ Preparing Live Connection</div>
+        <div class="step">✓ Unlocking FREE Features</div>
+        <div class="step">✓ Finalizing Private Access</div>
+
+    </div>
+
+    <div class="stats">
+
+        <div class="stat">
+            <div class="number" id="online">2847</div>
+            <div>Watching</div>
+        </div>
+
+        <div class="stat">
+            <div class="number">FREE</div>
+            <div>Access</div>
+        </div>
+
+        <div class="stat">
+            <div class="number">24/7</div>
+            <div>LIVE</div>
+        </div>
+
+    </div>
+
+    <div class="countdown">
+        Connecting in <span id="timer">6</span>s...
+    </div>
+
+    <div class="footer">
+        🔒 PRIVATE LIVE STREAMING • FREE ACCESS
+    </div>
+
+</div>
+
+<script>
+const OFFER_LINK = "https://YOUR-OFFER-LINK.COM";
+
+let percent = 0;
+const percentText = document.getElementById("percent");
+const bar = document.getElementById("bar");
+
+const percentInterval = setInterval(() => {
+
+    percent += 2;
+
+    percentText.textContent = percent + "%";
+    bar.style.width = percent + "%";
+
+    if(percent >= 100){
+        clearInterval(percentInterval);
+    }
+
+},100);
+
+const steps = document.querySelectorAll(".step");
+let current = 0;
+
+const stepInterval = setInterval(() => {
+
+    if(current < steps.length){
+        steps[current].classList.add("active");
+        current++;
+    }else{
+        clearInterval(stepInterval);
+    }
+
+},1000);
+
+setInterval(() => {
+    document.getElementById("online").textContent =
+        Math.floor(2800 + Math.random() * 500);
+},1500);
+
+let time = 6;
+
+const countdown = setInterval(() => {
+
+    time--;
+
+    document.getElementById("timer").textContent = time;
+
+    if(time <= 0){
+        clearInterval(countdown);
+        window.location.href = OFFER_LINK;
+    }
+
+},1000);
+</script>
+
+</body>
+</html>
